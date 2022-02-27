@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'signin.dart';
+import 'screens/signin.dart';
 
 void main() {
   runApp(const MyApp());
@@ -11,7 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Login',
+      title: 'Digital Vehicle',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         primarySwatch: Colors.grey,
