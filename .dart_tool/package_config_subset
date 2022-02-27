@@ -1,7 +1,7 @@
 digital_vehicle
 2.16
-file:///Users/oyus/Coding/digital_vehicle/
-file:///Users/oyus/Coding/digital_vehicle/lib/
+file:///Users/oyus/Coding/DigitalVehicle/
+file:///Users/oyus/Coding/DigitalVehicle/lib/
 async
 2.12
 file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/async-2.8.2/
@@ -58,6 +58,10 @@ path
 2.12
 file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0/
 file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/path-1.8.0/lib/
+proste_bezier_curve
+2.12
+file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/proste_bezier_curve-2.0.2/
+file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/proste_bezier_curve-2.0.2/lib/
 source_span
 2.12
 file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/source_span-1.8.1/
