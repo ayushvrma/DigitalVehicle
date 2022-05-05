@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/signin.dart';
+import 'screens/challan_registration.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const SignInPage(),
+      home: const VehicleRegistration(),
     );
   }
 }
