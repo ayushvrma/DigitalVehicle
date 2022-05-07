@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'screens/signin.dart';
 import 'screens/challan_registration.dart';
+import 'screens/api_call.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const VehicleRegistration(),
+      home: const API_call(),
     );
   }
 }

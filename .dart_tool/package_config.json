@@ -68,6 +68,18 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "http",
+      "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/http-0.12.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.4"
+    },
+    {
+      "name": "http_parser",
+      "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/http_parser-3.1.4",
+      "packageUri": "lib/",
+      "languageVersion": "2.3"
+    },
+    {
       "name": "lints",
       "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/lints-1.0.1",
       "packageUri": "lib/",
@@ -98,8 +110,20 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "pedantic",
+      "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/pedantic-1.11.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "proste_bezier_curve",
       "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/proste_bezier_curve-2.0.2",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "select_form_field",
+      "rootUri": "file:///Users/oyus/Development/flutter/.pub-cache/hosted/pub.dartlang.org/select_form_field-2.2.0",
       "packageUri": "lib/",
       "languageVersion": "2.12"
     },
@@ -182,7 +206,7 @@
       "languageVersion": "2.16"
     }
   ],
-  "generated": "2022-02-28T04:45:47.232583Z",
+  "generated": "2022-05-06T10:15:42.155759Z",
   "generator": "pub",
   "generatorVersion": "2.16.1"
 }
