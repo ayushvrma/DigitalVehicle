@@ -10,7 +10,7 @@ class API_call extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
-      body: Text(),
+      body: Text('oyus'),
     );
   }
 }
