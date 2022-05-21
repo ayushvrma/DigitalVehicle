@@ -3,6 +3,10 @@
 import 'package:flutter/material.dart';
 import 'Widget/signupContainer.dart';
 import 'signin.dart';
+import 'package:http/http.dart' as http; // for making HTTP calls
+import 'dart:convert'; // for converting JSON
+import 'dart:async'; // for async/await
+import 'dart:io'; // for http headers
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -12,6 +16,9 @@ class SignUpPage extends StatefulWidget {
 }
 
 class _SignUpPageState extends State<SignUpPage> {
+  final username = TextEditingController();
+  dynamic user_type;
+  final password = TextEditingController();
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -58,19 +65,20 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _emailWidget() {
     return Stack(
       children: [
-        TextFormField(
+        TextField(
+          controller: username,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
             // hintText: 'Enter your full name',
-            labelText: 'Email',
+            labelText: 'username',
             labelStyle: const TextStyle(
-                color: const Color.fromRGBO(226, 222, 211, 1),
+                color: Color.fromRGBO(226, 222, 211, 1),
                 fontWeight: FontWeight.w500,
                 fontSize: 13),
             enabledBorder: UnderlineInputBorder(
-              borderSide: const BorderSide(
-                color: Color.fromRGBO(226, 222, 211, 1),
+              borderSide: BorderSide(
+                color: const Color.fromRGBO(226, 222, 211, 1),
               ),
             ),
           ),
@@ -82,7 +90,8 @@ class _SignUpPageState extends State<SignUpPage> {
   Widget _passwordWidget() {
     return Stack(
       children: [
-        TextFormField(
+        TextField(
+          controller: password,
           keyboardType: TextInputType.name,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
@@ -106,9 +115,17 @@ class _SignUpPageState extends State<SignUpPage> {
     return Align(
       alignment: Alignment.centerRight,
       child: InkWell(
-        onTap: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        onTap: () async {
+          var map = new Map<String, dynamic>();
+          map['username'] = username.text;
+          map['passoword'] = password.text;
+          map['user_type'] = user_type.toString();
+          Uri uri = Uri.parse('http://127.0.0.1:5000/vehicle');
+          // http://127.0.0.1:5000
+          http.Response response = await http.post(
+            uri,
+            body: map,
+          );
         },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'screens/signin.dart';
-import 'screens/vehicle_registration.dart';
+import 'screens/vehicle/vehicle_registration.dart';
 import 'screens/api_call.dart';
+import 'package:digital_vehicle/screens/vehicle/vehicle_display.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const VehicleRegistration(),
+      home: const VehicleDisplay(),
     );
   }
 }
