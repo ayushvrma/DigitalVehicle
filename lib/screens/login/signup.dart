@@ -204,6 +204,7 @@ class _SignUpPageState extends State<SignUpPage> {
     return Stack(
       children: [
         TextField(
+          obscureText: true,
           controller: password,
           keyboardType: TextInputType.visiblePassword,
           textInputAction: TextInputAction.next,

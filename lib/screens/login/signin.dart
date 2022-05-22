@@ -6,6 +6,8 @@ import 'signup.dart';
 import 'package:select_form_field/select_form_field.dart';
 import 'package:http/http.dart' as http; // for making HTTP calls
 import 'package:digital_vehicle/screens/vehicle/vehicle_registration.dart';
+import 'package:digital_vehicle/screens/citizen_hs.dart';
+import 'package:digital_vehicle/screens/police_hs.dart';
 
 final List<Map<String, dynamic>> _items = [
   {'value': 'civilian', 'label': 'Civilian', 'icon': const Icon(Icons.man)},
@@ -71,6 +73,7 @@ class _SignInPageState extends State<SignInPage> {
           keyboardType: TextInputType.number,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
+            icon: Icon(Icons.abc),
             labelText: 'Email',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(173, 183, 192, 1),
@@ -89,9 +92,11 @@ class _SignInPageState extends State<SignInPage> {
       children: [
         TextField(
           controller: password,
+          obscureText: true,
           keyboardType: TextInputType.visiblePassword,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
+            icon: Icon(Icons.password),
             labelText: 'Password',
             labelStyle: TextStyle(
                 color: Color.fromRGBO(173, 183, 192, 1),
@@ -120,9 +125,17 @@ class _SignInPageState extends State<SignInPage> {
             uri,
             body: map,
           );
-          if (response.statusCode == 200) {
+          print(response.body);
+          if (response.body == "200" && user_type == "civilian") {
             Navigator.push(
-                context, MaterialPageRoute(builder: (context) => SignInPage()));
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CitizenHomeScreen()));
+          } else {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                    builder: (context) => const CitizenHomeScreen()));
           }
         },
         child:
@@ -193,6 +206,8 @@ class _SignInPageState extends State<SignInPage> {
                     child: Column(
                       children: [
                         SizedBox(height: height * .55),
+                        _typeWidget(),
+                        const SizedBox(height: 20),
                         _usernameWidget(),
                         const SizedBox(height: 20),
                         _passwordWidget(),
