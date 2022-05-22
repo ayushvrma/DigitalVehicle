@@ -1,9 +1,20 @@
 // ignore_for_file: unused_element
 
 import 'package:flutter/material.dart';
-import 'Widget/singinContainer.dart';
+import 'package:digital_vehicle/screens/Widget/singinContainer.dart';
 import 'signup.dart';
-import 'package:sqflite/sqflite.dart';
+import 'package:select_form_field/select_form_field.dart';
+import 'package:http/http.dart' as http; // for making HTTP calls
+import 'package:digital_vehicle/screens/vehicle/vehicle_registration.dart';
+
+final List<Map<String, dynamic>> _items = [
+  {'value': 'civilian', 'label': 'Civilian', 'icon': const Icon(Icons.man)},
+  {
+    'value': 'police',
+    'label': 'Police',
+    'icon': const Icon(Icons.local_police_rounded),
+  },
+];
 
 class SignInPage extends StatefulWidget {
   const SignInPage({Key? key}) : super(key: key);
@@ -13,6 +24,10 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+  dynamic user_type;
+  final user_id = TextEditingController();
+  final password = TextEditingController();
+
   Widget _backButton() {
     return InkWell(
       onTap: () {
@@ -32,11 +47,28 @@ class _SignInPageState extends State<SignInPage> {
     );
   }
 
+  Widget _typeWidget() {
+    return Stack(
+      children: [
+        SelectFormField(
+          type: SelectFormFieldType.dropdown, // or can be dialog
+          initialValue: 'civilian',
+          icon: const Icon(Icons.person),
+          labelText: 'User-Type',
+          items: _items,
+          onChanged: (val) => user_type = val,
+          onSaved: (val) => print(val),
+        ),
+      ],
+    );
+  }
+
   Widget _usernameWidget() {
     return Stack(
       children: [
-        TextFormField(
-          keyboardType: TextInputType.name,
+        TextField(
+          controller: user_id,
+          keyboardType: TextInputType.number,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
             labelText: 'Email',
@@ -55,8 +87,9 @@ class _SignInPageState extends State<SignInPage> {
   Widget _passwordWidget() {
     return Stack(
       children: [
-        TextFormField(
-          keyboardType: TextInputType.name,
+        TextField(
+          controller: password,
+          keyboardType: TextInputType.visiblePassword,
           textInputAction: TextInputAction.next,
           decoration: const InputDecoration(
             labelText: 'Password',
@@ -76,9 +109,21 @@ class _SignInPageState extends State<SignInPage> {
     return Align(
       alignment: Alignment.centerRight,
       child: InkWell(
-        onTap: () {
-          // Navigator.push(
-          //     context, MaterialPageRoute(builder: (context) => SignUpPage()));
+        onTap: () async {
+          var map = new Map<String, dynamic>();
+          map['user_id'] = user_id.text;
+          map['user_pass'] = password.text;
+          map['user_type'] = user_type.toString();
+          Uri uri = Uri.parse('http://127.0.0.1:5000/login');
+          // http://127.0.0.1:5000
+          http.Response response = await http.post(
+            uri,
+            body: map,
+          );
+          if (response.statusCode == 200) {
+            Navigator.push(
+                context, MaterialPageRoute(builder: (context) => SignInPage()));
+          }
         },
         child:
             Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [

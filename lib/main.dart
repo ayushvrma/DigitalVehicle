@@ -1,5 +1,6 @@
+import 'package:digital_vehicle/screens/login/signup.dart';
 import 'package:flutter/material.dart';
-import 'screens/signin.dart';
+import 'screens/login/signin.dart';
 import 'screens/vehicle/vehicle_registration.dart';
 import 'screens/api_call.dart';
 import 'package:digital_vehicle/screens/vehicle/vehicle_display.dart';
@@ -19,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.grey,
       ),
-      home: const VehicleDisplay(),
+      home: const SignUpPage(),
     );
   }
 }
