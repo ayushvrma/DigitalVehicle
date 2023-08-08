@@ -18,7 +18,7 @@ This Flutter application digitalizes the RTO (Regional Transport Office) system 
 - PostgreSQL: Set up a PostgreSQL database and configure the connection details in the Flask backend.
 
 ## Getting Started
-1. Clone this repository: `git clone https://github.com/your-username/rto-flutter-app.git`
+1. Clone this repository: `git clone https://github.com/ayushvrma/rto-flutter-app.git`
 2. Navigate to the project directory: `cd rto-flutter-app`
 3. Install Flutter dependencies: `flutter pub get`
 4. Run the Flutter app: `flutter run`
